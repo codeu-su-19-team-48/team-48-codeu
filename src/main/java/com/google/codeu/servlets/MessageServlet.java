@@ -90,15 +90,11 @@ public class MessageServlet extends HttpServlet {
         }
 
         String user = userService.getCurrentUser().getEmail();
+        //String text = request.getParameter("text");
+        String userText = Jsoup.clean(request.getParameter("text"), Whitelist.none());
 
-        String text = request.getParameter("text");
-        Whitelist whitelist = Whitelist.basicWithImages();
-        whitelist.addTags( "h1", "h2", "h3", "h4", "h5", "h6");
-        String userText = Jsoup.clean(text, whitelist);
 
-        System.out.println(userText);
-
-        /*Map<String, String> bbMap = new HashMap<String, String>();
+        Map<String, String> bbMap = new HashMap<String, String>();
         bbMap.put("(\r\n|\r|\n|\n\r)", "<br/>");
         bbMap.put("\\[b\\](.+?)\\[/b\\]", "<strong>$1</strong>");
         bbMap.put("\\[i\\](.+?)\\[/i\\]", "<span style='font-style:italic;'>$1</span>");
@@ -125,9 +121,9 @@ public class MessageServlet extends HttpServlet {
         bbMap.put("\\[youtube\\](.+?)\\[/youtube\\]", "<object width='640' height='380'><param name='movie' value='http://www.youtube.com/v/$1'></param><embed src='http://www.youtube.com/v/$1' type='application/x-shockwave-flash' width='640' height='380'></embed></object>");
         bbMap.put("\\[video\\](.+?)\\[/video\\]", "<video src='$1' />");
 
-       for (Map.Entry entry : bbMap.entrySet()) {
+        for (Map.Entry entry : bbMap.entrySet()) {
             userText = userText.replaceAll(entry.getKey().toString(), entry.getValue().toString());
-        }*/
+        }
 
         //add photo into message
         String regex = "(https?://\\S+\\.(png|jpg))";

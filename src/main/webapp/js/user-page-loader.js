@@ -98,8 +98,6 @@ function buildUI() {
     showMessageFormIfViewingSelf();
     fetchMessages();
     fetchAboutMe();
-    ClassicEditor.create( document.getElementById('message-input') );
-    ClassicEditor.create( document.getElementById('about-me-textarea') );
 }
 
 function fetchAboutMe() {

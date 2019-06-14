@@ -19,11 +19,8 @@ limitations under the License.
     <!--<link rel="stylesheet" href="/css/main.css">-->
     <link rel="stylesheet" href="/css/user-page.css">
     <script src="/js/user-page-loader.js"></script>
-    <!--loads the JavaScript code that comprises the CKEditor library for text styling.-->
-    <script src="https://cdn.ckeditor.com/ckeditor5/11.2.0/classic/ckeditor.js"></script>
-
 </head>
-<body onload="buildUI(); ">
+<body onload="buildUI();">
 <nav>
     <ul id="navigation">
         <li><a href="/">Home</a></li>
@@ -36,7 +33,7 @@ limitations under the License.
 <div id="about-me-container">Loading...</div>
 <div id="about-me-form" class="hidden">
     <form action="/about" method="POST">
-        <textarea name="about-me" placeholder="about me" id="about-me-textarea" rows=4 required></textarea>
+        <textarea name="about-me" placeholder="about me" rows=4 required></textarea>
         <br/>
         <input type="submit" value="Submit">
     </form>
